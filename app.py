@@ -18,5 +18,5 @@ if __name__ == "__main__":
     Minimum 1+ years experience.
     """
 
-    output = run_resume_analysis("examples/k1.pdf", job_desc)
+    output = run_resume_analysis("examples/resume.pdf", job_desc)
     print(output)

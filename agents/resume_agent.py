@@ -9,7 +9,9 @@ load_dotenv()
 api_key = os.getenv("GROQ_API_KEY")
 class ResumeAnalyzerAgent:
     def __init__(self):
-        self.llm =     llm = ChatGroq(api_key=api_key, model="llama-3.1-8b-instant")
+        self.llm =     llm = ChatGroq(api_key=api_key, model="llama-3.1-8b-instant",
+        temperature=0,  # Makes output deterministic
+        seed=42)
 
         self.analysis_prompt = PromptTemplate(
             input_variables=["resume_text", "job_description"],
@@ -40,7 +42,6 @@ class ResumeAnalyzerAgent:
         )
 
     def analyze(self, resume_text: str, job_description: str) -> str:
-        # Use invoke(), not run()
         return self.chain.invoke({
             "resume_text": resume_text,
             "job_description": job_description
