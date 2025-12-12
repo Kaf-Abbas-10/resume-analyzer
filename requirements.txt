@@ -1,5 +1,10 @@
 langchain
-langchain-openai
+langchain-groq
+langchain-core
 python-dotenv
 PyPDF2
 pdfplumber
+PyMuPDF
+flask
+flask-cors
+werkzeug

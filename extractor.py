@@ -1,8 +1,9 @@
-import pdfplumber
+import fitz
 
-def extract_text_from_pdf(pdf_path):
-    text = ""
-    with pdfplumber.open(pdf_path) as pdf:
-        for page in pdf.pages:
-            text += page.extract_text() + "\n"
-    return text
+def extract_text_from_pdf(path):
+    with fitz.open(path) as doc:
+        text = ""
+        for page in doc:
+            text += page.get_text("text")
+        return text
+
